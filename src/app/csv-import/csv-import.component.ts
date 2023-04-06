@@ -53,9 +53,9 @@ export class CsvImportComponent implements OnInit{
       const data = { value1: this.selectedValue1,value2:this.selectedValue2,value3:this.numeric };
       this.http.post(url, data).subscribe(
         res => console.log(res),
-        err => console.log(err)
+        err => console.log(err),
       );
-      window.location.reload()
+      alert("data inerted successfully! let's predict")
     }
 
 

@@ -154,8 +154,10 @@ def func():
     # Get the absolute path of the file
         filepath = os.path.abspath(filename)
         filepath2=os.path.abspath(filename2)
-        new_path = os.path.join("D:/Angular/Sales-Forecasting/src/assets", filename)
-        new_path2 = os.path.join("D:/Angular/Sales-Forecasting/src/assets/linechart", filename2)
+        new_path = os.path.join("./src/assets", filename)
+        print("************************************************************************")
+        print(new_path)
+        new_path2 = os.path.join("./src/assets/images", filename2)
         os.replace(filepath, new_path)
         os.replace(filepath2,new_path2)
         # plt.show()
@@ -173,20 +175,6 @@ UPLOAD_FOLDER = os.path.join(APP_ROOT, UPLOAD_FOLD)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
-
-# csv---------------------------------
-@app.route('/data')
-def get_data():
-    file = pd.read_csv('D://files//train.csv')
-    data = file.head(7).to_dict(orient='records')
-    return jsonify(data)
-
-
-
-@app.route('/',methods=['GET'])
-def get():
-    return " Flask works"
-
 @app.route('/fileupload', methods=['POST'])
 def upload_file():
     print(request.files)
@@ -200,33 +188,10 @@ def upload_file():
         return ''
     if file:
         filename = "train.csv"
-        file.save(os.path.join('D:\Angular\Sales-Forecasting\data', filename))
+        file.save(os.path.join('./data', filename))
         print(filename)
     print('end')
     return ''
-
-# plots-------------------------------------
-
-@app.route('/plot')
-def plot():
-    # Create data for the bar chart
-    labels = ['A', 'B', 'C', 'D', 'E']
-    values = [10, 8, 6, 7, 12]
-
-    # Create the bar chart
-    plt.bar(labels, values)
-
-    # Save the chart to a file
-    filename = 'bar_chart.png'
-    plt.savefig(filename)
-
-    # Get the absolute path of the file
-    filepath = os.path.abspath(filename)
-    new_path = os.path.join("D:/Angular/Sales-Forecasting/src/assets", filename)
-    os.replace(filepath, new_path)
-    return jsonify({'path':new_path})
-
-
 
 
 if __name__ == '__main__':

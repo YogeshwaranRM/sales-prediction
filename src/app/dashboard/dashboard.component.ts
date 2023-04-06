@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from '../service/auth.service';
 import { Router } from '@angular/router';
@@ -12,13 +12,13 @@ export class DashboardComponent implements OnInit {
   data: any;
   imageSrc: string='';
   image:string="assets/bar_chart.png";
-  linechart:string="assets/linechart/line.png";
+  linechart:string="assets/images/line.png";
   mae:string='';
   mape:string='';
   rmse:string='';
   mse:string='';
 
-  constructor(private dataService: DataService,private http:HttpClient,private router:Router) { }
+  constructor(private dataService: DataService,private http:HttpClient,private router:Router,private changeDetectorRef: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.dataService.getData().subscribe(data => {
@@ -27,6 +27,7 @@ export class DashboardComponent implements OnInit {
      this.mape=data[1];
      this.rmse=data[2];
      this.mse=data[3];
+     this.changeDetectorRef.detectChanges();
     });
     
   }
