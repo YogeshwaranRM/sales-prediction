@@ -1,0 +1,89 @@
+<style>
+    
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+input{
+  border-radius: 7px;
+  border: 1px solid black;
+  width: 300px;
+  height: 40px;
+  font-size: 20px;
+  background-color: gainsboro;
+  padding-left: 15px;
+}
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+button{
+  width: 250px;
+  height: 30px;
+  border-radius: 10px;
+}
+  .content {
+    display: flex;
+    max-width: 960px;
+    flex-direction: row;
+    align-items: center;
+    height:100vh;
+    margin: 0;
+    justify-content: center;
+    margin-left:13% ;
+  }
+label{
+  margin-bottom: 5px;
+}
+ 
+</style>
+  
+  <!-- Toolbar -->
+  <div class="" style="background-color: black;">
+
+    <div class="content" role="main" >
+    <div style="background-color: whitesmoke;width: 500px;height: 500px;margin-top: 6%;border-radius: 20px;">
+    
+        <div style="justify-content: center;margin-top: 8%; align-items: center;text-align: center;">
+        <h1>Sign Up</h1>
+        <div style="text-align: initial;margin-left: 13%;">
+            <label>User Name</label>
+            <br><br>
+            <input type="text" placeholder="Name *"/>
+            </div>
+       <br>
+        <div style="text-align: initial;margin-left: 13%;">
+        <label>E-mail</label>
+        <br><br>
+        <input #emails type="text" placeholder="Email *"/>
+        </div>
+   <br>
+   <div style="text-align: initial;margin-left: 13%;">
+    <label>Password</label>
+    <br><br>
+    <input #passwords type="password" placeholder="Password *"/>
+    </div>
+   
+   <br>
+    <br>
+    <div style="text-align: initial;margin-left: 18%;">
+    <button style="cursor: pointer;font-size: 17px; width: 270px;align-items: initial; height: 44px; background-color: rgb(245, 98, 35);color: white; border: 0;"  (click)="onSignup(emails.value,passwords.value)">Register</button>
+    </div>
+
+    <h4>Already Have a account ? <span style="cursor: pointer;" (click)="goToPage('Login')">Sign In!</span></h4>
+    </div>
+    
+</div>
+
+  </div>
+</div>
+  <router-outlet></router-outlet>

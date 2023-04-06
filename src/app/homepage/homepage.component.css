@@ -1,0 +1,41 @@
+.home_page{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: black;
+    /* background-image: url("https://wallpaper.dog/large/17167935.gif"); */
+}
+
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  h1 {
+    font-size: 60px;
+    text-transform: uppercase;
+    font-family: 'Gambetta', serif;
+    letter-spacing: -3px;
+    transition: 700ms ease;
+    font-variation-settings: "wght" 311;
+    margin-bottom: 0.8rem;
+    color: PaleGoldenRod;
+    outline: none;
+    text-align: center;
+  }
+  
+
+  p {
+    font-size: 1.2em;
+    line-height: 150%;
+    text-align: center;
+    color: MintCream;
+    letter-spacing: .5px;
+  }
