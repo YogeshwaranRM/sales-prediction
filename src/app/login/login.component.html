@@ -48,7 +48,7 @@
   </style>
   
   <!-- Toolbar -->
-  <div class="" style="background-color: black;">
+  <div *ngIf="!isSignedIn" class="" style="background-color: black;">
   <!-- <div class="toolbar" role="banner">
       <span style="margin-left: 5%;">Welcome</span>
       <span>         </span>
@@ -61,7 +61,7 @@
 
     <div style="border-radius: 15px; background-color: whitesmoke;width: 500px;height: 500px;margin-top: 6%;">
     
-        <div *ngIf="isSignedIn" style="justify-content: center;margin-top: 13%; align-items: center;text-align: center;">
+        <div style="justify-content: center;margin-top: 13%; align-items: center;text-align: center;">
         <h1>Sign   In</h1>
        
         <div style="text-align: initial;margin-left: 13%;">
@@ -80,6 +80,7 @@
     <br>
     <div style="text-align: initial;margin-left: 18%;">
     <button style="cursor: pointer;font-size: 17px; width: 270px;align-items: initial; height: 44px; background-color: rgb(245, 98, 35);color: white; border: 0;" (click)="onSignin(email.value,password.value)">Sign In</button>
+
     </div>
 
     <h4 >New to our Web ? <span style="cursor: pointer;" (click)="goToPage('Register')">Sign Up!</span></h4>
@@ -89,4 +90,5 @@
 
   </div>
 </div>
+<app-csv-import *ngIf="isSignedIn" (isLogout)="handlelogout()"></app-csv-import>
   <router-outlet></router-outlet>

@@ -23,6 +23,8 @@ export class RegistrationComponent implements OnInit{
     await this.firebaseService.signup(email,password)
     if(this.firebaseService.isLoggedIn)
     this.isSignedIn=false
+
+    alert("Your Registration Success")
   }
 
 

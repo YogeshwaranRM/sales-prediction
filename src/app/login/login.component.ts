@@ -7,7 +7,7 @@ import { FirebaseService } from '../services/firebase.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent{
+export class LoginComponent implements OnInit{
 
   isSignedIn=false
   constructor(private router:Router,public firebaseService:FirebaseService)
@@ -29,12 +29,16 @@ export class LoginComponent{
   async onSignin(email:string,password:string){
     await this.firebaseService.signin(email,password)
     if(this.firebaseService.isLoggedIn){
-    this.goToPage('Input')
     this.isSignedIn=true
     }
     if(!this.firebaseService.signin(email,password)){
       console.log("not")
     }
+  }
+
+  handlelogout(){
+    this.isSignedIn=false
+
   }
 
 

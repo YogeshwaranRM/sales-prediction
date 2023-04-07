@@ -1,8 +1,8 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef,EventEmitter,Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from '../service/auth.service';
 import { Router } from '@angular/router';
-
+import { FirebaseService } from '../services/firebase.service';
 @Component({
   selector: 'app-dash_board',
   templateUrl: './dashboard.component.html',
@@ -17,8 +17,8 @@ export class DashboardComponent implements OnInit {
   mape:string='';
   rmse:string='';
   mse:string='';
-
-  constructor(private dataService: DataService,private http:HttpClient,private router:Router,private changeDetectorRef: ChangeDetectorRef) { }
+  @Output() isLogout =new EventEmitter<void>()
+  constructor(public firebaseService:FirebaseService,private dataService: DataService,private http:HttpClient,private router:Router,private changeDetectorRef: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.dataService.getData().subscribe(data => {
@@ -31,6 +31,12 @@ export class DashboardComponent implements OnInit {
     });
     
   }
+  logout(){
+    this.firebaseService.logout()
+    this.isLogout.emit()
+    // alert("not work")
+   }
+
   goToPage(pageName:string):void{
     this.router.navigate([`${pageName}`])
   }

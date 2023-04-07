@@ -5,7 +5,7 @@ import {AngularFireAuth} from '@angular/fire/compat/auth'
   providedIn: 'root'
 })
 export class FirebaseService {
-  isLoggedIn=true
+  isLoggedIn=false
   constructor(public firebaseAuth :AngularFireAuth) { }
 
 
