@@ -17,9 +17,11 @@ step 6 : run "ng serve"
 
 ## Flask ------
 
-step 7 : In same Directory run "pip install flask pandas matplotlib flask_cors numpy sklearn statsmodels scikit-learn"
+step 7 : open new cmd
 
-step 8 : run "python app.py"
+step 8 : In same Directory run "pip install flask pandas matplotlib flask_cors numpy sklearn statsmodels scikit-learn"
+
+step 9 : run "python app.py"
 
 # Other
 
